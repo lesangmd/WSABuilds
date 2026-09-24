@@ -36,8 +36,6 @@ jobs:
           logo=Image.open('/tmp/app-logo.png').convert('RGBA')
           logo.thumbnail((350,350), Image.Resampling.LANCZOS)
           canvas=Image.new('RGBA',(512,512),'white')
-          draw=ImageDraw.Draw(canvas)
-          draw.rounded_rectangle((12,12,500,500),radius=82,outline='#079A4B',width=18)
           x=(512-logo.width)//2
           y=(512-logo.height)//2
           canvas.alpha_composite(logo,(x,y))
