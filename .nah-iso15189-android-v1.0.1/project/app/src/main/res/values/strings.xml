@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">NAH ISO 15189 SUITE</string>
+    <string name="app_name">NAH ISO</string>
     <string name="app_url">https://sachyhoc.com/nah-lab-iso/</string>
     <string name="offline_title">Không thể mở ứng dụng</string>
     <string name="offline_message">Vui lòng kiểm tra kết nối Internet hoặc thành phần Android System WebView.</string>
     <string name="retry">Thử lại</string>
     <string name="open_browser">Mở bằng trình duyệt</string>
     <string name="exit_title">Thoát ứng dụng?</string>
-    <string name="exit_message">Bạn có muốn đóng NAH ISO 15189 SUITE?</string>
+    <string name="exit_message">Bạn có muốn đóng NAH ISO?</string>
     <string name="exit">Thoát</string>
     <string name="cancel">Hủy</string>
 </resources>
