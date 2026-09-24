@@ -1,8 +1,8 @@
-name: Build NAH ISO Android v1.0.4 Short Label APK
+name: Build NAH ISO Android v1.0.5 Neutral Icon APK
 on:
   push:
     branches:
-      - nah-iso15189-android-v1.0.4-short-label
+      - nah-iso15189-android-v1.0.5-neutral-icon
   workflow_dispatch:
 
 jobs:
@@ -26,15 +26,15 @@ jobs:
         with:
           gradle-version: '8.9'
 
-      - name: Generate Windows-parity launcher icon
+      - name: Generate neutral white launcher icon
         run: |
           set -e
           curl -fL --retry 3 -o /tmp/app-logo.png https://sachyhoc.com/wp-content/plugins/nah-iso15189-suite/assets/app-logo.png
           python -m pip install --quiet pillow
           python - <<'PY'
-          from PIL import Image, ImageDraw
+          from PIL import Image
           logo=Image.open('/tmp/app-logo.png').convert('RGBA')
-          logo.thumbnail((410,410), Image.Resampling.LANCZOS)
+          logo.thumbnail((350,350), Image.Resampling.LANCZOS)
           canvas=Image.new('RGBA',(512,512),'white')
           draw=ImageDraw.Draw(canvas)
           draw.rounded_rectangle((12,12,500,500),radius=82,outline='#079A4B',width=18)
@@ -49,16 +49,16 @@ jobs:
         run: gradle :app:assembleDebug --no-daemon --stacktrace
 
       - name: Rename APK
-        run: cp app/build/outputs/apk/debug/app-debug.apk NAH-ISO-Android-v1.0.4-test.apk
+        run: cp app/build/outputs/apk/debug/app-debug.apk NAH-ISO-Android-v1.0.5-test.apk
 
       - name: APK SHA-256
-        run: sha256sum NAH-ISO-Android-v1.0.4-test.apk > NAH-ISO-Android-v1.0.4-test.apk.sha256
+        run: sha256sum NAH-ISO-Android-v1.0.5-test.apk > NAH-ISO-Android-v1.0.5-test.apk.sha256
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: NAH-ISO-Android-v1.0.4-test
+          name: NAH-ISO-Android-v1.0.5-test
           path: |
-            .nah-iso15189-android-v1.0.1/project/NAH-ISO-Android-v1.0.4-test.apk
-            .nah-iso15189-android-v1.0.1/project/NAH-ISO-Android-v1.0.4-test.apk.sha256
+            .nah-iso15189-android-v1.0.1/project/NAH-ISO-Android-v1.0.5-test.apk
+            .nah-iso15189-android-v1.0.1/project/NAH-ISO-Android-v1.0.5-test.apk.sha256
           if-no-files-found: error
