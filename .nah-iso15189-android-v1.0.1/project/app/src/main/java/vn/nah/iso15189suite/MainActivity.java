@@ -128,7 +128,7 @@ public class MainActivity extends Activity {
         }
 
         String ua = s.getUserAgentString();
-        s.setUserAgentString(ua + " NAHISOAndroid/1.0.1");
+        s.setUserAgentString(ua + " NAHISOAndroid/1.0.2");
 
         CookieManager cm = CookieManager.getInstance();
         cm.setAcceptCookie(true);
