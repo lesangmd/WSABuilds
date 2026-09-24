@@ -1,8 +1,8 @@
-name: Build NAH ISO 15189 Android v1.0.2 Icon Parity APK
+name: Build NAH ISO 15189 Android v1.0.3 Fullscreen APK
 on:
   push:
     branches:
-      - nah-iso15189-android-v1.0.2-icon-parity
+      - nah-iso15189-android-v1.0.3-fullscreen
   workflow_dispatch:
 
 jobs:
@@ -49,16 +49,16 @@ jobs:
         run: gradle :app:assembleDebug --no-daemon --stacktrace
 
       - name: Rename APK
-        run: cp app/build/outputs/apk/debug/app-debug.apk NAH-ISO-15189-SUITE-Android-v1.0.2-test.apk
+        run: cp app/build/outputs/apk/debug/app-debug.apk NAH-ISO-15189-SUITE-Android-v1.0.3-test.apk
 
       - name: APK SHA-256
-        run: sha256sum NAH-ISO-15189-SUITE-Android-v1.0.2-test.apk > NAH-ISO-15189-SUITE-Android-v1.0.2-test.apk.sha256
+        run: sha256sum NAH-ISO-15189-SUITE-Android-v1.0.3-test.apk > NAH-ISO-15189-SUITE-Android-v1.0.3-test.apk.sha256
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: NAH-ISO-15189-SUITE-Android-v1.0.2-test
+          name: NAH-ISO-15189-SUITE-Android-v1.0.3-test
           path: |
-            .nah-iso15189-android-v1.0.1/project/NAH-ISO-15189-SUITE-Android-v1.0.2-test.apk
-            .nah-iso15189-android-v1.0.1/project/NAH-ISO-15189-SUITE-Android-v1.0.2-test.apk.sha256
+            .nah-iso15189-android-v1.0.1/project/NAH-ISO-15189-SUITE-Android-v1.0.3-test.apk
+            .nah-iso15189-android-v1.0.1/project/NAH-ISO-15189-SUITE-Android-v1.0.3-test.apk.sha256
           if-no-files-found: error
