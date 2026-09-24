@@ -16,7 +16,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
-import android.view.ViewGroup;\nimport android.view.WindowInsets;\nimport android.view.WindowInsetsController;
+import android.view.ViewGroup;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import android.webkit.CookieManager;
 import android.webkit.DownloadListener;
 import android.webkit.RenderProcessGoneDetail;
@@ -58,7 +60,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);\n        applyImmersiveMode();
+        setContentView(R.layout.activity_main);
+        applyImmersiveMode();
 
         webContainer = findViewById(R.id.web_container);
         offlinePanel = findViewById(R.id.offline_panel);
